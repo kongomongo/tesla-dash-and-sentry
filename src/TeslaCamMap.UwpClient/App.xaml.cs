@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -28,6 +30,9 @@ namespace TeslaCamMap.UwpClient
         /// </summary>
         public App()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("de-DE");
+            System.Diagnostics.Debug.WriteLine(Thread.CurrentThread.CurrentCulture);
+            System.Diagnostics.Debug.WriteLine(Thread.CurrentThread.CurrentUICulture);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
